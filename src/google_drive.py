@@ -34,7 +34,6 @@ class GoogleDrive:
 
     def upload_file(self, file_path: str, mime_type="application/zip") -> int:
         """Загрузка архива"""
-
         try:
             file_path = make_zip_from_folder(file_path)
 
@@ -43,7 +42,7 @@ class GoogleDrive:
         
         file_metadata = {
             "name": os.path.split(file_path)[1],
-            "parents": [cfg.gd_obsidian_path.get_secret_value()],
+            "parents": [cfg.gd_path.get_secret_value()],
         }
 
         media = MediaFileUpload(file_path, mimetype=mime_type, resumable=False)

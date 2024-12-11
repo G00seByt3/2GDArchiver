@@ -17,8 +17,7 @@ class Application(tk.Tk):
 
 
     def set_ui(self):
-        self.title("Obsidian Cacher")
-        self.iconbitmap("src/icon.ico")
+        self.title("2GDArchiver")
         self.geometry("350x200")
         self.resizable(False, False)
 
@@ -32,16 +31,16 @@ class Application(tk.Tk):
         text = self.choosen_dir
 
         if text is None: 
-            text = "Хранилище не выбрано"
+            text = "Директория не указана"
 
         self.path_label = ttk.Label(text=text)
         self.path_label.pack(pady=[40, 20])
 
 
-    # Кнопка выбора директории для архивации
+    # Кнопка выбора директории
     def directory_button(self):
-        self.dir_btn = ttk.Button(text="Выбрать хранилище",
-                         command=self.get_dir)
+        self.dir_btn = ttk.Button(text="Выбрать директорию",
+                                  command=self.get_dir)
         self.dir_btn.pack(fill="x", padx=50, pady=[0, 20])
 
 
@@ -57,7 +56,7 @@ class Application(tk.Tk):
     # Отправка архива в GoogleDrive
     def upload_button(self):
         self.upload_btn = ttk.Button(text="Загрузить",
-                         command=lambda: threading.Thread(target=self.upload_dir).start())
+                                     command=lambda: threading.Thread(target=self.upload_dir).start())
         self.upload_btn.pack(fill="x", padx=50)
 
 

@@ -6,7 +6,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     # Адрес папки в GoogleDrive
-    gd_obsidian_path: SecretStr 
+    gd_path: SecretStr 
     # Путь до файла с данными сервисного аккаунта 
     service_account_file: SecretStr
 
